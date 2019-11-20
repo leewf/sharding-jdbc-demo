@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+
+<mapper namespace="com.example.sharding.domain.mapper.userinfo.UserInfoMapper">
+
+
+    <select id="findUserById" resultMap="UserInfoVO">
+        SELECT u.id as userId,u.user_name,u.account
+        FROM user_info u
+        WHERE 1=1
+         and u.id = #{userId}
+    </select>
+
+
+    <resultMap type="com.example.sharding.domain.vo.UserInfoVO" id="UserInfoVO">
+
+        <id property="id" column="userId"/>
+        <result property="userName" column="user_name"/>
+        <result property="account" column="account"/>
+
+    </resultMap>
+
+
+</mapper>
